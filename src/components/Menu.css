@@ -1,4 +1,22 @@
+
+/* The main container of the play button*/
+.Menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    z-index: 100;
+}
+
+/*
+** Two button styles
+** Apply className="Button"
+** Or, className=""MetalButton MetalText metal radial" to Menu.js button
+*/
+
 /* Start of Button styling */
+/* Simple and shaking button affect */
+
 .Button {
     padding: 40px 80px;
     font-size: 2em;
@@ -54,10 +72,91 @@ animation-delay: 0.06s;
 }
 /* End of Button styling */ 
 
-.Menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    z-index: 100;
+
+/* Start of Metal Button Style */
+/* Metal radius affect with blue grow actve affect */
+/* Source from: https://simurai.com/lab/2011/08/21/brushed-metal */
+
+.MetalButton { border: none; display: block; }
+.MetalText { text-decoration: none; display: block; }
+
+/* Metal ------------------------- */
+
+.metal {
+position: relative;
+margin: 40px auto;
+outline: none;
+
+font: bold 2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+text-align: center;
+color: hsla(0,0%,20%,1);
+text-shadow: hsla(0,0%,40%,.5) 0 -1px 0, hsla(0,0%,100%,.6) 0 2px 1px;
+
+background-color: hsl(0,0%,90%);
+box-shadow: inset hsla(0,0%,15%,  1) 0  0px 0px 4px, /* border */
+            inset hsla(0,0%,15%, .8) 0 -1px 5px 4px, /* soft SD */
+            inset hsla(0,0%,0%, .25) 0 -1px 0px 7px, /* bottom SD */
+            inset hsla(0,0%,100%,.7) 0  2px 1px 7px, /* top HL */
+            
+            hsla(0,0%, 0%,.15) 0 -5px 6px 4px, /* outer SD */
+            hsla(0,0%,100%,.5) 0  0 6px 4px; /* outer HL */ 
+            /*hsla(265, 98%, 67%, .5) 0  5px 6px 4px; */ 
+
+transition: color .2s;
 }
+
+/* Radial ------------------------- */
+
+.radial.metal {
+width: 160px;
+height: 160px;
+line-height: 160px;
+border-radius: 80px;
+background-image: -webkit-radial-gradient(  50%   0%,  8% 50%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+    -webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%),
+    -webkit-radial-gradient(   0%  50%, 50%  7%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+    -webkit-radial-gradient( 100%  50%, 50%  5%, hsla(0,0%,100%,.5) 0%, hsla(0,0%,100%,0) 100%),
+    
+    -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,  0%,0) 0%, hsla(0,0%,  0%,0)   3%, hsla(0,0%,  0%,.1) 3.5%),
+    -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0)   6%, hsla(0,0%,100%,.1) 7.5%),
+    -webkit-repeating-radial-gradient( 50% 50%, 100% 100%, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0) 1.2%, hsla(0,0%,100%,.2) 2.2%),
+    
+    -webkit-radial-gradient( 50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
+}
+
+.metal.radial:before, .metal.radial:after {
+content: "";
+top: 0;
+left: 0;
+position: absolute;
+width: inherit;
+height: inherit;
+border-radius: inherit;
+
+/* fake conical gradients */
+background-image: -webkit-radial-gradient(  50%   0%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+    -webkit-radial-gradient(  50% 100%, 10% 50%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+    -webkit-radial-gradient(   0%  50%, 50% 10%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%),
+    -webkit-radial-gradient( 100%  50%, 50% 06%, hsla(0,0%,0%,.1) 0%, hsla(0,0%,0%,0) 100%);
+}
+.metal.radial:before { transform: rotate( 65deg); }
+.metal.radial:after { transform: rotate(-65deg); }
+
+/* active ------------------------- */
+
+.metal:active {
+    color: hsl(210, 100%, 40%);
+    text-shadow: hsla(210,100%,20%,.3) 0 -1px 0, hsl(210,100%,85%) 0 2px 1px, hsla(200,100%,80%,1) 0 0 5px, hsla(210,100%,50%,.6) 0 0 20px;
+    box-shadow: 
+        inset hsla(210,100%,30%,  1) 0  0px 0px 4px, /* border */
+        inset hsla(210,100%,15%, .4) 0 -1px 5px 4px, /* soft SD */
+        inset hsla(210,100%,20%,.25) 0 -1px 0px 7px, /* bottom SD */
+        inset hsla(210,100%,100%,.7) 0  2px 1px 7px, /* top HL */
+        
+        hsla(210,100%,75%, .8) 0  0px 3px 2px, /* outer SD */
+        hsla(210,50%,40%, .25) 0 -5px 6px 4px, /* outer SD */
+        hsla(210,80%,95%,   1) 0  0 6px 4px; /* outer HL */
+        /*hsla(210,80%,95%,   1) 0  5px 6px 4px;  */
+}
+
+/* End of Metal Button Style */

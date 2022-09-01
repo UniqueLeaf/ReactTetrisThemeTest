@@ -2,8 +2,8 @@ import "./Menu.css";
 
 const Menu = ({ onClick }) => (
   <div className="Menu">
-    <button className="Button" onClick={onClick}>
-      Play Tetris
+    <button className="MetalButton MetalText metal radial" onClick={onClick}>
+      Play
     </button>
   </div>
 );
